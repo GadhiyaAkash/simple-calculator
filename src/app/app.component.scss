@@ -1,34 +1,36 @@
 .calculator {
   position: fixed;
-  top: 35%;
-  left: 57%;
+  top: 49%;
+  left: 72%;
   transform: translate(-50%, -50%);
   width: 50%;
-  height: 44%;
+  height: 52%;
   border-radius: 4px;
+  background-color: black;
 }
 
 .main-label {
   margin-left: 90px;
+  color: #fff;
 }
 
 .header {
   margin: 15px;
 
-  textarea {
+  cal-input {
     border-radius: 4px;
     max-width: 100%;
-    resize: none;
-    width: 71%;
+    width: 100%;
   }
 }
 
 .footer {
-  margin: 15px;
+  margin: 15px 0px 15px 15px;
 }
 
 .row {
-  .col-sm-2 {
+  .col-sm-6,
+  .col-sm-3 {
     background: #dfe1e5;
     color: #202124;
     border: 1px solid #dfe1e5;
@@ -45,4 +47,13 @@
     color: #fff !important;
     border: 1px solid #4285f4 !important;
     background: #4285f4 !important;
+}
+
+@media (min-width: 576px) {
+  .col-sm-3 {
+    max-width: 23%;
+  }
+  .col-sm-6 {
+    max-width: 48%;
+  }
 }

@@ -1,33 +1,38 @@
-<div class="container">
-    <div class="calculator">
-            <h3 class="main-label">{{ title }}</h3>
-        <div class="row header">
-            <textarea class="" name="" id="" rows="2"></textarea>
+<div class="container calculator">
+    <!-- <h3 class="main-label">{{ title }}</h3> -->
+    <div class="row header">
+        <!-- <textarea class="" name="" id="" rows="2"></textarea> -->
+        <input type="text" name="number" class="cal-input form-control">
+    </div>
+    <div class="row footer">
+        <div class="col-sm-6">AC</div>
+        <div class="col-sm-6">
+            <i class="fa fa-times fa-sm" aria-hidden="true"></i>
         </div>
-        <div class="row footer">
-            <div class="col-sm-2">7</div>
-            <div class="col-sm-2">8</div>
-            <div class="col-sm-2">9</div>
-            <div class="col-sm-2">/</div>
-        </div>
-        <div class="row footer">
-            <div class="col-sm-2">4</div>
-            <div class="col-sm-2">5</div>
-            <div class="col-sm-2">6</div>
-            <div class="col-sm-2">*</div>
-        </div>
-        <div class="row footer">
-            <div class="col-sm-2">1</div>
-            <div class="col-sm-2">2</div>
-            <div class="col-sm-2">3</div>
-            <div class="col-sm-2">-</div>
-        </div>
-        <div class="row footer">
-            <div class="col-sm-2">0</div>
-            <div class="col-sm-2">.</div>
-            <div class="col-sm-2 plus">=</div>
-            <div class="col-sm-2">+</div>
-        </div>
+    </div>
+    <div class="row footer">
+        <div class="col-sm-3">7</div>
+        <div class="col-sm-3">8</div>
+        <div class="col-sm-3">9</div>
+        <div class="col-sm-3">/</div>
+    </div>
+    <div class="row footer">
+        <div class="col-sm-3">4</div>
+        <div class="col-sm-3">5</div>
+        <div class="col-sm-3">6</div>
+        <div class="col-sm-3">*</div>
+    </div>
+    <div class="row footer">
+        <div class="col-sm-3">1</div>
+        <div class="col-sm-3">2</div>
+        <div class="col-sm-3">3</div>
+        <div class="col-sm-3">-</div>
+    </div>
+    <div class="row footer">
+        <div class="col-sm-3">0</div>
+        <div class="col-sm-3">.</div>
+        <div class="col-sm-3 plus">=</div>
+        <div class="col-sm-3">+</div>
     </div>
 </div>
 <router-outlet></router-outlet>
