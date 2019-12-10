@@ -1,38 +1,44 @@
 <div class="container calculator">
     <!-- <h3 class="main-label">{{ title }}</h3> -->
     <div class="row header">
-        <!-- <textarea class="" name="" id="" rows="2"></textarea> -->
-        <input type="text" name="number" class="cal-input form-control">
+        <input 
+            type="text" 
+            name="number" 
+            class="cal-input form-control"
+            [(ngModel)]="calInput"
+            autofocus
+            #search
+            >
     </div>
     <div class="row footer">
-        <div class="col-sm-6">AC</div>
-        <div class="col-sm-6">
+        <div class="col-sm-6" (click)="clickAC()">AC</div>
+        <div class="col-sm-6" (click)="clickCross()">
             <i class="fa fa-times fa-sm" aria-hidden="true"></i>
         </div>
     </div>
     <div class="row footer">
-        <div class="col-sm-3">7</div>
-        <div class="col-sm-3">8</div>
-        <div class="col-sm-3">9</div>
-        <div class="col-sm-3">/</div>
+        <div class="col-sm-3" (click)="clickSeven()">7</div>
+        <div class="col-sm-3" (click)="clickEight()">8</div>
+        <div class="col-sm-3" (click)="clickNine()">9</div>
+        <div class="col-sm-3" (click)="clickDivision()">/</div>
     </div>
     <div class="row footer">
-        <div class="col-sm-3">4</div>
-        <div class="col-sm-3">5</div>
-        <div class="col-sm-3">6</div>
-        <div class="col-sm-3">*</div>
+        <div class="col-sm-3" (click)="clickFour()">4</div>
+        <div class="col-sm-3" (click)="clickFive()">5</div>
+        <div class="col-sm-3" (click)="clickSix()">6</div>
+        <div class="col-sm-3" (click)="clickMultiplication()">*</div>
     </div>
     <div class="row footer">
-        <div class="col-sm-3">1</div>
-        <div class="col-sm-3">2</div>
-        <div class="col-sm-3">3</div>
-        <div class="col-sm-3">-</div>
+        <div class="col-sm-3" (click)="clickOne()">1</div>
+        <div class="col-sm-3" (click)="clickTwo()">2</div>
+        <div class="col-sm-3" (click)="clickThree()">3</div>
+        <div class="col-sm-3" (click)="clickMinus()">-</div>
     </div>
     <div class="row footer">
-        <div class="col-sm-3">0</div>
-        <div class="col-sm-3">.</div>
-        <div class="col-sm-3 plus">=</div>
-        <div class="col-sm-3">+</div>
+        <div class="col-sm-3" (click)="clickZero()">0</div>
+        <div class="col-sm-3" (click)="clickDot()">.</div>
+        <div class="col-sm-3 plus" (click)="clickEqual()">=</div>
+        <div class="col-sm-3" (click)="clickPlus()">+</div>
     </div>
 </div>
 <router-outlet></router-outlet>
