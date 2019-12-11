@@ -6,38 +6,74 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  /**
+   * Public Variable's
+   */
   calInput: string = '';
-  @ViewChild('search', { static: true }) searchElement: ElementRef;
   numbers = [];
   operators = [];
+  oldValue = '';
 
-  constructor() {
+  /**
+   * Get Element for focus
+   */
+  @ViewChild('search', {
+    static: true
+  }) searchElement: ElementRef;
+
+  /**
+   * pre-calcaulation before output
+   * @param value 
+   */
+  clickButton(value) {
+    if (this.isOperators(value)) {
+      this.calInput += value;
+      this.operators.push(value);
+      this.oldValue = '';
+    } else {
+      this.calInput += value;
+      var checkValue = this.oldValue + value.toString();
+      if (this.oldValue && this.oldValue == value && checkValue) {
+        this.oldValue += value.toString();
+        this.numbers = this.numbers.slice(0, this.numbers.length - 2);
+        this.numbers.push(parseInt(this.oldValue));
+        this.oldValue = '';
+
+      } else {
+        this.oldValue += value.toString();
+        this.numbers.push(parseInt(this.oldValue));
+      }
+    }
   }
 
-  clickNumber(num) {
-    this.calInput += num;
-    this.numbers.push(parseInt(num));
+  /**
+   * Helper function to check operators
+   * @param value 
+   */
+  isOperators(value) {
+    if (value == '+' || value == '-' || value == '*' || value == '/') {
+      return true;
+    }
+    return false;
   }
 
-  clickOperator(operator) {
-    this.calInput += operator;
-    this.operators.push(operator);
-  }
-
+  /**
+   * Clear all values
+   */
   clickAC() {
     this.focusInput();
     this.calInput = '';
     this.numbers = [];
     this.operators = [];
+    this.oldValue = '';
   }
 
   clickCross() {
-    console.log("this.numbers::", this.numbers);
-    console.log("this.operators::", this.operators);
+    // Put your code...
   }
 
   clickDot() {
-    // this.calInput += '.';
+    // You can add decimal code if you want.
   }
 
   clickEqual() {
@@ -73,6 +109,7 @@ export class AppComponent {
     }
     return 0;
   }
+
   /**
    * Helper function to focus on input
    */
