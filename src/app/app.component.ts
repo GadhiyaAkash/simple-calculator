@@ -8,87 +8,71 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 export class AppComponent {
   calInput: string = '';
   @ViewChild('search', { static: true }) searchElement: ElementRef;
+  numbers = [];
+  operators = [];
 
   constructor() {
   }
 
-  preCalculatValue() {
-
+  clickNumber(num) {
+    this.calInput += num;
+    this.numbers.push(parseInt(num));
   }
 
-  clickZero() {
-    this.calInput += '0';
-  }
-
-  clickOne() {
-    this.calInput += '1';
-  }
-
-  clickTwo() {
-    this.calInput += '2';
-  }
-
-  clickThree() {
-    this.calInput += '3';
-  }
-
-  clickFour() {
-    this.calInput += '4';
-  }
-
-  clickFive() {
-    this.calInput += '5';
-  }
-
-  clickSix() {
-    this.calInput += '6';
-  }
-
-  clickSeven() {
-    this.calInput += '7';
-  }
-
-  clickEight() {
-    this.calInput += '8';
-  }
-
-  clickNine() {
-    this.calInput += '9';
+  clickOperator(operator) {
+    this.calInput += operator;
+    this.operators.push(operator);
   }
 
   clickAC() {
     this.focusInput();
     this.calInput = '';
+    this.numbers = [];
+    this.operators = [];
   }
 
   clickCross() {
-    this.calInput = '9';
-  }
-
-  clickDivision() {
-    this.calInput += '/';
-  }
-
-  clickMultiplication() {
-    this.calInput += '*';
-  }
-
-  clickMinus() {
-    this.calInput += '-';
-  }
-
-  clickPlus() {
-    this.calInput += '+';
+    console.log("this.numbers::", this.numbers);
+    console.log("this.operators::", this.operators);
   }
 
   clickDot() {
-    this.calInput += '.';
+    // this.calInput += '.';
   }
 
   clickEqual() {
-    this.calInput += '=';
+    let sum = 0;
+    while (this.operators.length > 0) {
+      var right = this.numbers.pop();
+
+      if (isNaN(right)) {
+        right = 0;
+      }
+      var left = this.numbers.pop();
+      if (isNaN(left)) {
+        left = 0;
+      }
+      var op = this.operators.pop();
+      sum += this.calc(left, right, op);
+    }
+    this.calInput = sum.toString();
+    this.numbers = [];
+    this.operators = [];
   }
 
+  calc(left, right, op) {
+    switch (op) {
+      case '+':
+        return left + right;
+      case '-':
+        return left - right;
+      case '*':
+        return left * right;
+      case '/':
+        return left / right;
+    }
+    return 0;
+  }
   /**
    * Helper function to focus on input
    */

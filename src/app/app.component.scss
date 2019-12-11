@@ -17,10 +17,10 @@
 .header {
   margin: 15px;
 
-  cal-input {
+  .cal-input {
     border-radius: 4px;
     max-width: 100%;
-    width: 100%;
+    width: 99% !important;
   }
 }
 
@@ -29,7 +29,7 @@
 }
 
 .row {
-  .col-sm-6,
+  .col-sm-12,
   .col-sm-3 {
     background: #dfe1e5;
     color: #202124;
@@ -40,9 +40,15 @@
     height: 40px;
     font-size: 25px;
     margin-right: 10px;
+    cursor: pointer;
   }
 }
 
+.ac {
+  background: #cc222fde !important;
+  color: #fff !important;
+  border: 1px solid #cc222fde !important;
+}
 .plus {
     color: #fff !important;
     border: 1px solid #4285f4 !important;
@@ -53,7 +59,7 @@
   .col-sm-3 {
     max-width: 23%;
   }
-  .col-sm-6 {
-    max-width: 48%;
+  .col-sm-12 {
+    max-width: 97%;
   }
 }
